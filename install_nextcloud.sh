@@ -72,5 +72,5 @@ echo "apc.enable_cli=1" | sudo tee -a /etc/php/8.1/mods-available/apcu.ini      
 
 sudo systemctl restart apache2
 
-sudo nvim /var/www/nc.krishnayadav.xyz/config/config.php            # Add the following 2 lines(The commas are required!): 'memcache.local' => '\\OC\\Memcache\\APCu',
+# sudo nvim /var/www/nc.krishnayadav.xyz/config/config.php            # Add the following 2 lines(The commas are required!): 'memcache.local' => '\\OC\\Memcache\\APCu',
                                                                     #                                                      'default_phone_region' => 'IN',
