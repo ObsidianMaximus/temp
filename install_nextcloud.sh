@@ -14,6 +14,8 @@ sudo mv nextcloud /var/www/
 
 sudo a2dissite 000-default.conf                         # Disable apache2 default site. 
 
+#This below command can ask for time pass stuff.
+
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 3650 -nodes
 
 # Add this in the /var/www/nextcloud/config/config.php file to fix error ' Host 10.0.2.15 was not connected to because it violates local access rules '
@@ -66,7 +68,7 @@ sudo a2ensite nextcloud.conf
 
 sudo a2enmod dir env headers mime rewrite ssl           # Modules required by apache3, so enable them for use with nextcloud.
 
-echo "apc.enable_cli=1" | sudo tee -a /etc/php/8.3/mods-available/apcu.ini      # Enable the apcu module in php. This module caches data in memory, so helps in reducing database queries and file system operations. This also allows the occ script to function.
+echo "apc.enable_cli=1" | sudo tee -a /etc/php/8.1/mods-available/apcu.ini      # Enable the apcu module in php. This module caches data in memory, so helps in reducing database queries and file system operations. This also allows the occ script to function.
 
 sudo systemctl restart apache2
 
